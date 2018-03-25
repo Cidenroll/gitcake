@@ -133,7 +133,30 @@ function getValue(){
 ```
 
 ### Algorithm
+The main logic is located in the app/Controllers/Algorithm.php file.
+Two methods used: **algorithm** and **display**
+How they work:
+A. Algorithm:
+- gets all "Bitball" entities and passes them (along with the count of Bitball entities) in the algorithm view
+- this view will show them inside the modal (if the "Select Colors" method is chosen) for them to be passed as POST data to display view
+- this view will show the allowed max number to input (on the left side of the form); if the user selects more than the max number, the submit will not work, else the number of Bitballs will be passed as POST data to the display view
+B. Display:
+- 2 decisional branches here: 
+	- in case number is passed:
+		- generates an array of random ball colors from the db, via **getRandomBall()** 
+		- set the distribution of the Bitballs and saves it inside the initial array, via **setDistribution()**
+		- sets a new group array, with the groups of Bitballs available, via **setGroups()**
+		- passes the distribution and group array inside the display view via display.ctp
+		- saves the total number of Bitballs and the group array(as a string) in the Logs table of the database.
+		
+	- in case the colors are passed:
+		- creates an array from the passed color array and counts the number of colors, powering at 2 for total ball count
+		- set the distribution of the Bitballs and saves it in the color array, via **setDistribution()**
+		- sets a new group array, with the groups of Bitballs available, via **setGroups()**
+		- passes the distribution and group array inside the display view via display.ctp
+		- saves the total number of Bitballs and the group array(as a string) in the Logs table of the database.
 
+More in-detail about the display() methods used:
 
 ### End Credits
 
