@@ -203,7 +203,7 @@ class AlgorithmController extends AppController {
 	public function display(){
 
         if($this->request->is('post')){
-            print_r($this->request->data);
+           // print_r($this->request->data);
             if(isset($this->request->data['Balls']) && $this->request->data['radioButtonForm'] == 0){
 
                 $gotBallsNumber = $this->request->data['Balls'];
