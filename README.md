@@ -136,10 +136,12 @@ function getValue(){
 The main logic is located in the app/Controllers/Algorithm.php file.
 Two methods used: **algorithm** and **display**
 How they work:
+
 A. Algorithm:
 - gets all "Bitball" entities and passes them (along with the count of Bitball entities) in the algorithm view
 - this view will show them inside the modal (if the "Select Colors" method is chosen) for them to be passed as POST data to display view
 - this view will show the allowed max number to input (on the left side of the form); if the user selects more than the max number, the submit will not work, else the number of Bitballs will be passed as POST data to the display view
+
 B. Display:
 - 2 decisional branches here: 
 	- in case number is passed:
