@@ -1,2 +1,1 @@
-# bitcake
-CAKEPHP2 MVC w/ features
+# BITCAKE CAKEPHP2 Documentation
