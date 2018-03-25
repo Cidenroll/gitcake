@@ -30,8 +30,7 @@ The project is a simple *Model-View-Controller* framework based on *CAKEPHP2.8* 
 
 
 ### Database
-
-- 
+The SQL export is:
 
 
 ### MVC
