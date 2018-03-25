@@ -160,9 +160,44 @@ B. Display:
 
 More in-detail about the display() methods used:
 
+1. **getRandomBall(&$arr, $number)**
+
+ - memory stores the array after it saves it changes
+ - $number is the total color count supplied
+ - gets all the BitBall entities and saves their colors in an X array
+ - array_rands inside the X array a number of $number times
+ - saves the resulting array inside the $arr
+ 
+ 2. **setDistribution(&$arr, $numberOfColors)**
+ 
+ - gets the total number of BitBalls by empowering by 2 the $numberOfColors variable
+ - creates a constructor array that initially has the length of $numberOfColors but it is also populated by 1 (where 1 is an initial ball count value; we're under the pressumption that all colors passed have atleast 1 ball)
+ - gets the remaining balls from the difference totalNumberOfBalls - $numberOfColors
+ - loops inside the constructor array and, for each value, randomizes a number between 1 and the difference above (totalNumberOfBalls - $numberOfColors), adding it to the initial value (of 1);
+ - updates the totalNumberOfBalls by substracting from them the randomly generated number; the loop ends when there are no more totalNumberOfBalls
+ - combines the elements of the randomBall array with the values of the contructor Array and saves them back to $arr
+ 
+ 3. **setGroups($arr, $numberOfColors)**
+ 
+ - returns a group array
+ - initializes an empty group array
+ - gets the distribution array and populates the contents of the group array likewise:
+ 	- if the color value is > $numberOfColors, it will randomize a number between 1 and the $numberOfColors and populates the group array with that color as key and the random number as value; it will also resave the constructor color's value by difference between initial value and random number
+	- if the color value is <= $numberOfColors, will place a random number between 1 and the color value in the group array (on the same color value) and will update the constructor by difference	
+	- the numbers randomized above will then be added as initial ARRAYS inside the main group array
+- evaluates the constructor array to check if there are values of 0 on the keys, if there are, unset the key-value pair
+- loops in the main group array, to add the difference of balls by color:
+	- everytime it enters a new loop interation, it evaluates the count of elements inside each subarray; if it is 2 or above, it will move to the next iteration directly;
+	- if the count is not 2 or above, then:
+		- picks a random colorKey and colorValue from within the remaining contructor array
+		- if the colorValue is > $numberOfColors, then updates the contructor-array via the colorKey with the difference (colorValue - $numberOfColors), and after set the colorValue as $numberOfColors; if the colorValue is <= $numberOfColors, unset the constructor array via colorKey directly
+		- check if the key already exists in the main group:
+			- if YES, add the colorValue to the colorKey 
+			- if NO, add a new element inside that subarray
+
 ### End Credits
-
-
+Project started on 22.03.2018 with the CAKEPHP framework installation and baking of views/controllers/models.
+Algorithm page and front-end page side-projects started on 24.03.2018 and ended on 25.03.2018.
 
 ## License and Copyright
 © Rusu Florin Alexandru, 2018
