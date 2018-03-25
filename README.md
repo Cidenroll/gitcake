@@ -33,7 +33,7 @@ The project is a simple *Model-View-Controller* framework based on *CAKEPHP2.8* 
 ### Database
 The SQL export is: *bitcake.sql* located in the main dir.
 Import it into your prefered SQL database.
-To *configure the database connection to the MVC framework*, go to *app/Config/database.php* , under DATABASE_CONFIG, to configure your host, root user and password.
+To **configure the database connection to the MVC framework**, go to **app/Config/database.php** , under DATABASE_CONFIG, to configure your host, root user and password.
 
 ### MVC
 - Models: *Bitballs* and *Logs* (located @ app/Model)
